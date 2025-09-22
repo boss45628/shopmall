@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { useCart } from '@/contexts/CartContext';
+import Link from "next/link";
 
 // 模擬商品數據
 const sampleProducts = [
@@ -90,12 +91,12 @@ export default function Home() {
                   <h2 className="text-xl font-semibold text-gray-900">購物車</h2>
                   <p className="text-gray-600">目前有 {state.totalItems} 件商品</p>
                 </div>
-                <a
+                <Link
                   href="/cart"
                   className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
                 >
                   查看購物車
-                </a>
+                </Link>
               </div>
             </div>
           )}

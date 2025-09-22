@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShopMall - 您的購物天堂",
+  title: "ShopMall - 購物天堂",
   description: "發現最新最熱門的科技產品，享受優質購物體驗",
 };
 
