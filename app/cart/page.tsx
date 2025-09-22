@@ -3,6 +3,7 @@
 import { useCart } from '@/contexts/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Link from "next/link";
 
 export default function CartPage() {
   const { state, updateQuantity, removeFromCart, clearCart } = useCart();
@@ -27,12 +28,12 @@ export default function CartPage() {
               </svg>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">您的購物車是空的</h1>
               <p className="text-gray-600 mb-8">快去看看有什麼好商品吧！</p>
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 開始購物
-              </a>
+              </Link>
             </div>
           </div>
         </main>

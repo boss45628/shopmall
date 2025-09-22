@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,7 +66,7 @@ export default function Navbar() {
             </div>
 
             {/* Cart Icon */}
-            <a href="/cart" className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <Link href="/cart" className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l1.5 6m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
               </svg>
@@ -74,7 +75,7 @@ export default function Navbar() {
                   {state.totalItems}
                 </span>
               )}
-            </a>
+            </Link>
 
             {/* User Account */}
             <button className="p-2 text-gray-600 hover:text-blue-600 transition-colors">
