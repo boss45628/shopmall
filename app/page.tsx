@@ -1,103 +1,124 @@
-import Image from "next/image";
+
+
+'use client';
+
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
+import { useCart } from '@/contexts/CartContext';
+
+// 模擬商品數據
+const sampleProducts = [
+  {
+    id: 1,
+    name: "Apple iPhone 15 Pro",
+    price: 36900,
+    originalPrice: 39900,
+    image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
+    description: "全新 iPhone 15 Pro，搭載 A17 Pro 晶片，鈦金屬設計，專業級相機系統。",
+    rating: 4.8,
+    reviews: 1247,
+  },
+  {
+    id: 2,
+    name: "Samsung Galaxy S24 Ultra",
+    price: 42900,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+    description: "Galaxy S24 Ultra 配備 S Pen，200MP 相機，AI 驅動的攝影功能。",
+    rating: 4.7,
+    reviews: 892,
+  },
+  {
+    id: 3,
+    name: "MacBook Pro 14吋",
+    price: 69900,
+    originalPrice: 74900,
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
+    description: "MacBook Pro 搭載 M3 Pro 晶片，Liquid Retina XDR 顯示器，專業級效能。",
+    rating: 4.9,
+    reviews: 634,
+  },
+  {
+    id: 4,
+    name: "Sony WH-1000XM5 耳機",
+    price: 12900,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+    description: "業界領先的主動降噪技術，30小時電池續航，高解析度音質。",
+    rating: 4.6,
+    reviews: 2156,
+  },
+  {
+    id: 5,
+    name: "Nintendo Switch OLED",
+    price: 10980,
+    originalPrice: 12980,
+    image: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop",
+    description: "Nintendo Switch OLED 版本，7吋 OLED 螢幕，64GB 儲存空間。",
+    rating: 4.8,
+    reviews: 3456,
+  },
+  {
+    id: 6,
+    name: "iPad Air 第5代",
+    price: 18900,
+    image: "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&h=300&fit=crop",
+    description: "iPad Air 搭載 M1 晶片，10.9吋 Liquid Retina 顯示器，支援 Apple Pencil。",
+    rating: 4.7,
+    reviews: 1789,
+  }
+];
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { state } = useCart();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* 頁面標題 */}
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">精選商品</h1>
+            <p className="text-gray-600">發現最新最熱門的科技產品</p>
+          </div>
+
+          {/* 購物車狀態 */}
+          {state.totalItems > 0 && (
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">購物車</h2>
+                  <p className="text-gray-600">目前有 {state.totalItems} 件商品</p>
+                </div>
+                <a
+                  href="/cart"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+                >
+                  查看購物車
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* 商品網格 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sampleProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </div>
+
+          {/* 載入更多按鈕 */}
+          <div className="text-center mt-12">
+            <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 px-8 rounded-lg transition-colors">
+              載入更多商品
+            </button>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
