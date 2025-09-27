@@ -148,7 +148,7 @@ export default function CartPage() {
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
                 <h2 className="text-lg font-semibold text-gray-900 mb-4">訂單摘要</h2>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
                     <span className="text-gray-600">商品數量</span>
@@ -175,10 +175,10 @@ export default function CartPage() {
                 <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors mb-3">
                   前往結帳
                 </button>
-                
-                <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors">
+
+                <Link href="/" className="w-full inline-flex justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors">
                   繼續購物
-                </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <a
-                href="#"
+                href="/"
                 className="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 首頁
@@ -78,11 +78,13 @@ export default function Navbar() {
             </Link>
 
             {/* User Account */}
-            <button className="p-2 text-gray-600 hover:text-blue-600 transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </button>
+            <Link href="/login" className="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+              <button className="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -107,7 +109,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <a
-                href="#"
+                href="/"
                 className="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               >
                 首頁
@@ -130,7 +132,7 @@ export default function Navbar() {
               >
                 聯絡我們
               </a>
-              
+
               {/* Mobile Search */}
               <div className="px-3 py-2">
                 <input
