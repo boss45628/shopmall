@@ -22,30 +22,30 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a
+              <Link
                 href="/"
                 className="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 首頁
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 商品分類
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 特價商品
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 聯絡我們
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -108,30 +108,30 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <a
+              <Link
                 href="/"
                 className="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               >
                 首頁
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               >
                 商品分類
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               >
                 特價商品
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               >
                 聯絡我們
-              </a>
+              </Link>
 
               {/* Mobile Search */}
               <div className="px-3 py-2">
